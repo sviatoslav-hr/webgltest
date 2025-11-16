@@ -1,5 +1,5 @@
 import { createProgram, createShader } from "./shader";
-import vertexShaderSource from "./shaders/gl02.vert.glsl?raw";
+import vertexShaderSource from "./shaders/gl-image.vert.glsl?raw";
 import fragmentShaderSource from "./shaders/gl02.frag.glsl?raw";
 
 export function glHowItWorks(gl: WebGLRenderingContext) {

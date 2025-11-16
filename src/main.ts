@@ -1,7 +1,8 @@
 import "./style.css";
 
-import { glFundamentals } from "./gl-01-fundamentals";
-import { glHowItWorks } from "./gl-02-how-it-works";
+// import { glFundamentals } from "./gl-01-fundamentals";
+// import { glHowItWorks } from "./gl-02-how-it-works";
+import { glImage } from "./gl-image";
 
 async function main(): Promise<void> {
   const canvas = document.createElement("canvas");
@@ -21,7 +22,7 @@ async function main(): Promise<void> {
   gl.clear(gl.COLOR_BUFFER_BIT);
 
   // glFundamentals(gl);
-  glHowItWorks(gl);
+  glImage(gl);
 }
 
 main();
