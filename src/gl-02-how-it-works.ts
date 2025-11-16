@@ -57,46 +57,15 @@ function setGeometry(gl: WebGLRenderingContext) {
   gl.bufferData(
     gl.ARRAY_BUFFER,
     new Float32Array([
-      // Top triangle
-      // rt
-      width - offset * 1.5,
-      offset,
-      // lt
-      offset * 1.5,
-      offset,
-      // c
+      // p0
       width / 2,
-      height / 2 - offset * 0.5,
-      // Right triangle
-      // rt
-      width - offset,
-      offset * 1.5,
-      // c
-      width / 2 + offset * 0.5,
-      height / 2,
-      // rb
-      width - offset,
-      height - offset * 1.5,
-      // Bottom triangle
-      // c
-      width / 2,
-      height / 2 + offset * 0.5,
-      // rb
-      width - offset * 1.5,
-      height - offset,
-      // lb
-      offset * 1.5,
-      height - offset,
-      // Left triangle
-      // lt
-      offset,
-      offset * 1.5,
-      // c
-      width / 2 - offset * 0.5,
-      height / 2,
-      // lb
-      offset,
-      height - offset * 1.5,
+      (height * 1) / 4 + offset,
+      // p1
+      (width * 3) / 4 - offset,
+      (height * 3) / 4 - offset,
+      // p2
+      (width * 1) / 4 + offset,
+      (height * 3) / 4 - offset,
     ]),
     gl.STATIC_DRAW,
   );
@@ -105,6 +74,6 @@ function setGeometry(gl: WebGLRenderingContext) {
 function drawScene(gl: WebGLRenderingContext) {
   const offset = 0;
   const verticesPerTriangle = 3;
-  const trianglesCount = verticesPerTriangle * 4;
-  gl.drawArrays(gl.TRIANGLES, offset, trianglesCount);
+  const verticesCount = verticesPerTriangle * 1;
+  gl.drawArrays(gl.TRIANGLES, offset, verticesCount);
 }
