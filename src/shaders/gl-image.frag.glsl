@@ -9,7 +9,7 @@ varying vec2 v_textureCoord;
 void main() {
     vec4 color = texture2D(u_image, v_textureCoord);
     if (color.a < 0.1) {
-        color = vec4(0, 0, 1, color.a);
+        color = vec4(0, 0, 1, color.a + 0.3);
     }
     gl_FragColor = color;
 }
