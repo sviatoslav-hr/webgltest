@@ -1,8 +1,8 @@
-import { createProgram, createShader } from "./shader";
-import vertexShaderSource from "./shaders/gl-image.vert.glsl?raw";
-import fragmentShaderSource from "./shaders/gl-image.frag.glsl?raw";
+import { createProgram, createShader } from '../shader';
+import fragmentShaderSource from './gl-image.frag.glsl?raw';
+import vertexShaderSource from './gl-image.vert.glsl?raw';
 
-const IMAGE_PATH = "./assets/character_robot_wide.png";
+const IMAGE_PATH = './assets/character_robot_wide.png';
 // const IMAGE_PATH = "./assets/leaves.jpg";
 
 type Image = HTMLImageElement;
@@ -10,32 +10,32 @@ type Image = HTMLImageElement;
 export function glImage(gl: WebGLRenderingContext) {
   const image = new Image();
   image.onload = () => {
-    console.log("[DEBUG]: Image loaded and drawn");
+    console.log('[DEBUG]: Image loaded and drawn');
     renderImage(gl, image);
   };
   image.onerror = () => {
-    console.error("[ERROR]: Failed to load image");
+    console.error('[ERROR]: Failed to load image');
   };
   image.src = IMAGE_PATH;
 }
 
 function renderImage(gl: WebGLRenderingContext, image: Image) {
   const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-  if (!vertexShader) throw new Error("Failed to create vertex shader");
+  if (!vertexShader) throw new Error('Failed to create vertex shader');
 
   const fragmentShader = createShader(
     gl,
     gl.FRAGMENT_SHADER,
     fragmentShaderSource,
   );
-  if (!fragmentShader) throw new Error("Failed to create fragment shader");
+  if (!fragmentShader) throw new Error('Failed to create fragment shader');
 
   const program = createProgram(gl, vertexShader, fragmentShader);
-  if (!program) throw new Error("Failed to create program");
+  if (!program) throw new Error('Failed to create program');
   gl.useProgram(program);
 
-  const positionLocation = gl.getAttribLocation(program, "a_position");
-  const textureCoordLocation = gl.getAttribLocation(program, "a_textureCoord");
+  const positionLocation = gl.getAttribLocation(program, 'a_position');
+  const textureCoordLocation = gl.getAttribLocation(program, 'a_textureCoord');
 
   const positionBuffer = gl.createBuffer();
   {
@@ -104,7 +104,7 @@ function renderImage(gl: WebGLRenderingContext, image: Image) {
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
   }
 
-  const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
+  const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
 
   gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
   gl.clearColor(0, 0, 0, 0);

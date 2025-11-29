@@ -2,8 +2,8 @@ import './style.css';
 
 // import { glFundamentals } from "./gl-01-fundamentals";
 // import { glHowItWorks } from "./gl-02-how-it-works";
-// import { glImage } from './gl-image';
-import { glParticles } from './gl-particles';
+import { glImage } from './gl-image';
+// import { glParticles } from './gl-particles';
 // import { glFadedTriangle } from './gl-faded-triangle';
 
 async function main(): Promise<void> {
@@ -24,8 +24,8 @@ async function main(): Promise<void> {
   gl.clear(gl.COLOR_BUFFER_BIT);
 
   // glFundamentals(gl);
-  // glImage(gl);
-  glParticles(gl);
+  glImage(gl);
+  // glParticles(gl);
   // glFadedTriangle(gl);
 }
 
