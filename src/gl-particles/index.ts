@@ -1,6 +1,6 @@
-import { createProgram, createShader } from './shader';
-import vertexShaderSource from './shaders/gl-particles.vert.glsl?raw';
-import fragmentShaderSource from './shaders/gl-particles.frag.glsl?raw';
+import { createProgram, createShader } from '../shader';
+import fragmentShaderSource from './particles.frag.glsl?raw';
+import vertexShaderSource from './particles.vert.glsl?raw';
 
 interface Renderer {
   gl: WebGLRenderingContext;
@@ -46,14 +46,20 @@ function render(r: Renderer): void {
   clearScreen(r, GRAY);
 
   const RED = { x: 1, y: 0, z: 0, w: 1 };
-  drawTriangle(r, { x: 10, y: 20 }, { x: 80, y: 20 }, { x: 10, y: 30 }, RED);
+  drawTriangle(
+    r,
+    { x: 180, y: 120 },
+    { x: 280, y: 220 },
+    { x: 110, y: 230 },
+    RED,
+  );
   const BLUE = { x: 0, y: 0, z: 1, w: 1 };
   drawQuad(
     r,
-    { x: 50, y: 50 },
-    { x: 150, y: 60 },
-    { x: 140, y: 160 },
-    { x: 40, y: 150 },
+    { x: 450, y: 150 },
+    { x: 550, y: 160 },
+    { x: 540, y: 260 },
+    { x: 440, y: 250 },
     BLUE,
   );
 }
