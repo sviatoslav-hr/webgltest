@@ -3,8 +3,8 @@ import './style.css';
 // import { glFundamentals } from './gl-01-fundamentals';
 // import { glHowItWorks } from './gl-02-how-it-works';
 // import { glImage } from './gl-image';
-// import { glParticles } from './gl-particles';
-import { glShapes } from './gl-shapes';
+import { glParticles } from './gl-glow';
+// import { glShapes } from './gl-shapes';
 // import { glFadedTriangle } from './gl-faded-triangle';
 
 async function main(): Promise<void> {
@@ -27,8 +27,8 @@ async function main(): Promise<void> {
   // glFundamentals(gl);
   // glHowItWorks(gl);
   // glImage(gl);
-  // glParticles(gl);
-  glShapes(gl);
+  glParticles(gl);
+  // glShapes(gl);
   // glFadedTriangle(gl);
 }
 
