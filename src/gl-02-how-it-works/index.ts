@@ -1,28 +1,28 @@
-import { createProgram, createShader } from "./shader";
-import vertexShaderSource from "./shaders/gl-image.vert.glsl?raw";
-import fragmentShaderSource from "./shaders/gl02.frag.glsl?raw";
+import { createProgram, createShader } from '../shader';
+import vertexShaderSource from './gl02.vert.glsl?raw';
+import fragmentShaderSource from './gl02.frag.glsl?raw';
 
 export function glHowItWorks(gl: WebGLRenderingContext) {
   const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-  if (!vertexShader) throw new Error("Failed to create vertex shader");
+  if (!vertexShader) throw new Error('Failed to create vertex shader');
 
   const fragmentShader = createShader(
     gl,
     gl.FRAGMENT_SHADER,
     fragmentShaderSource,
   );
-  if (!fragmentShader) throw new Error("Failed to create fragment shader");
+  if (!fragmentShader) throw new Error('Failed to create fragment shader');
 
   const program = createProgram(gl, vertexShader, fragmentShader);
-  if (!program) throw new Error("Failed to create program");
+  if (!program) throw new Error('Failed to create program');
   gl.useProgram(program);
 
-  const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+  const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
   gl.enableVertexAttribArray(positionAttributeLocation);
 
   const resulutionUniformLocation = gl.getUniformLocation(
     program,
-    "u_resolution",
+    'u_resolution',
   );
   gl.uniform2f(resulutionUniformLocation, gl.canvas.width, gl.canvas.height);
 
